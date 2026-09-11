@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Secret Gift 💝</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- YURAKLAR -->
+  <div id="hearts"></div>
+
+
+  <main class="game">
+
+
+    <!-- =========================
+         KIRISH
+    ========================== -->
+
+    <section id="loginScreen" class="screen active">
+
+      <div class="loginCard">
+
+        <div class="loginLock">
+          🔐
+        </div>
+
+        <h1>Secret Gift 💝</h1>
+
+        <p class="loginTitle">
+          Sirli sovg‘aga kirish
+        </p>
+
+        <p class="loginHint">
+          Davom etish uchun maxfiy kodni kiriting ✨
+        </p>
+
+        <div class="codeDots">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <input
+          id="entryCode"
+          type="password"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="••••"
+          autocomplete="off"
+        >
+
+        <button id="loginBtn" class="mainBtn">
+          Kirish 💗
+        </button>
+
+        <p id="loginMessage"></p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         START
+    ========================== -->
+
+    <section id="startScreen" class="screen">
+
+      <div class="gift">
+
+        <div class="gift-lid">
+          🎀
+        </div>
+
+        <div class="gift-box">
+          🎁
+        </div>
+
+      </div>
+
+      <h1>
+        Secret Gift 💝
+      </h1>
+
+      <p class="subtitle">
+        Senga atalgan kichik sirli sovg‘a...
+      </p>
+
+      <p class="hint">
+        Uni olish uchun barcha bosqichlardan
+        o‘tishing kerak ❤️
+      </p>
+
+      <button id="startBtn" class="mainBtn">
+        Boshlash ✨
+      </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         SAVOL
+    ========================== -->
+
+    <section id="questionScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 1 / 8
+        </span>
+
+        <span id="score">
+          ❤️ 0
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          💌
+        </div>
+
+        <h2 id="question">
+          Meni qanchalik taniysan?
+        </h2>
+
+        <p id="questionText">
+          Quyidagilardan to‘g‘ri javobni tanla 👇
+        </p>
+
+
+        <div id="answers" class="answers">
+
+          <button class="answer correct">
+            ❤️ Juda yaxshi
+          </button>
+
+          <button class="answer wrong">
+            🤔 Umuman bilmayman
+          </button>
+
+          <button class="answer wrong">
+            😴 Biroz
+          </button>
+
+        </div>
+
+        <p id="message"></p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PUZZLE
+    ========================== -->
+
+    <section id="puzzleScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 2 / 8
+        </span>
+
+        <span>
+          🧩 Puzzle
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          🧩
+        </div>
+
+        <h2>
+          Sirli rasmni yig‘!
+        </h2>
+
+        <p>
+          Bo‘laklarni to‘g‘ri joylashtir.
+        </p>
+
+        <div id="puzzle"></div>
+
+        <button id="puzzleBtn" class="mainBtn">
+          Tayyor ✅
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HEART GAME
+    ========================== -->
+
+    <section id="heartScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 3 / 8
+        </span>
+
+        <span id="heartCount">
+          ❤️ 0 / 10
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          ❤️
+        </div>
+
+        <h2>
+          Yuraklarni top!
+        </h2>
+
+        <p>
+          10 ta yurakni bosib ol 💕
+        </p>
+
+        <div id="heartGame"></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TARGET GAME
+    ========================== -->
+
+    <section id="targetScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 4 / 8
+        </span>
+
+        <span>
+          🎯
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          🎯
+        </div>
+
+        <h2>
+          Yurakni ushla!
+        </h2>
+
+        <p>
+          Harakatlanayotgan yurakka
+          5 marta teg!
+        </p>
+
+        <div id="targetArea">
+
+          <button id="target">
+            ❤️
+          </button>
+
+        </div>
+
+        <p id="targetScore">
+          0 / 5
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SECRET CODE
+    ========================== -->
+
+    <section id="codeScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 5 / 8
+        </span>
+
+        <span>
+          🔐
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          🔐
+        </div>
+
+        <h2>
+          Secret Code
+        </h2>
+
+        <p>
+          Sirli kodni topishga harakat qil!
+        </p>
+
+        <input
+          id="codeInput"
+          type="number"
+          inputmode="numeric"
+          placeholder="••••"
+          maxlength="4"
+        >
+
+        <button id="codeBtn" class="mainBtn">
+          Tekshirish 🔓
+        </button>
+
+        <p id="codeMessage"></p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PHOTO
+    ========================== -->
+
+    <section id="photoScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 6 / 8
+        </span>
+
+        <span>
+          🖼️
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          🖼️
+        </div>
+
+        <h2>
+          Bir sir ochildi...
+        </h2>
+
+        <p>
+          Bu rasm sen uchun 💕
+        </p>
+
+
+        <div class="photoBox">
+
+          <img
+            id="photo1"
+            src="photos/photo1.jpg"
+            alt="Secret photo"
+          >
+
+        </div>
+
+
+        <button id="photoBtn" class="mainBtn">
+          Keyingisi 💗
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FINAL QUESTION
+    ========================== -->
+
+    <section id="finalQuestionScreen" class="screen">
+
+      <div class="top">
+
+        <span>
+          Bosqich 7 / 8
+        </span>
+
+        <span>
+          💭
+        </span>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="emoji">
+          💭
+        </div>
+
+        <h2 id="finalQuestion">
+          Oxirgi savol...
+        </h2>
+
+
+        <div id="finalAnswers" class="answers">
+
+          <button class="answer finalWrong">
+            Yo‘q 😄
+          </button>
+
+          <button class="answer finalCorrect">
+            Albatta ❤️
+          </button>
+
+          <button class="answer finalWrong">
+            Bilmayman 🤔
+          </button>
+
+        </div>
+
+        <p id="finalMessage"></p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FINAL GIFT
+    ========================== -->
+
+    <section id="finalScreen" class="screen">
+
+      <div class="finalGift">
+
+        <div class="bigGift">
+          🎁
+        </div>
+
+        <h1>
+          Tabriklayman! 💖
+        </h1>
+
+        <p class="finalText">
+          Sen barcha sinovlardan o‘tding!
+        </p>
+
+        <p class="finalText">
+          Endi Secret Gift seniki... ✨
+        </p>
+
+        <button id="openGiftBtn" class="mainBtn">
+          Sovg‘ani ochish 🎁
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <section id="galleryScreen" class="screen">
+
+      <div class="galleryHeader">
+
+        <div class="emoji">
+          💝
+        </div>
+
+        <h1>
+          Secret Gift
+        </h1>
+
+        <p>
+          Bu kichik sovg‘a sen uchun ❤️
+        </p>
+
+      </div>
+
+
+      <div id="gallery" class="gallery">
+
+        <!-- 10 TA RASM -->
+
+        <img
+          src="photos/photo1.jpg"
+          alt="Photo 1"
+        >
+
+        <img
+          src="photos/photo2.jpg"
+          alt="Photo 2"
+        >
+
+        <img
+          src="photos/photo3.jpg"
+          alt="Photo 3"
+        >
+
+        <img
+          src="photos/photo4.jpg"
+          alt="Photo 4"
+        >
+
+        <img
+          src="photos/photo5.jpg"
+          alt="Photo 5"
+        >
+
+        <img
+          src="photos/photo6.jpg"
+          alt="Photo 6"
+        >
+
+        <img
+          src="photos/photo7.jpg"
+          alt="Photo 7"
+        >
+
+        <img
+          src="photos/photo8.jpg"
+          alt="Photo 8"
+        >
+
+        <img
+          src="photos/photo9.jpg"
+          alt="Photo 9"
+        >
+
+        <img
+          src="photos/photo10.jpg"
+          alt="Photo 10"
+        >
+
+      </div>
+
+
+      <div class="loveMessage">
+
+        <h2>
+          💌 For You
+        </h2>
+
+        <p>
+          Har bir bosqichning oxirida seni
+          kichik bir syurpriz kutadi.
+        </p>
+
+        <p>
+          Bu sahifaning o‘zi oddiy o‘yin,
+          lekin ichidagi xotiralar juda maxsus ❤️
+        </p>
+
+        <div class="infinity">
+          ∞
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

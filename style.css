@@ -1,0 +1,1125 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #ffb6d9 0,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      #c9a7ff 0,
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #160b25,
+      #3b123f,
+      #190b2d
+    );
+
+  color: white;
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND HEARTS
+========================= */
+
+#hearts {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+
+  font-size: 20px;
+
+  animation:
+    floatHeart linear forwards;
+
+  opacity: 0.8;
+}
+
+@keyframes floatHeart {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform:
+      translateY(-110vh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+.game {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 520px;
+
+  min-height: 100vh;
+
+  margin: auto;
+
+  padding:
+    20px 14px;
+}
+
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+  display: none;
+
+  min-height:
+    calc(100vh - 40px);
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  animation:
+    screenIn 0.5s ease;
+}
+
+.screen.active {
+  display: flex;
+}
+
+@keyframes screenIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.loginCard {
+  width: 100%;
+  max-width: 380px;
+
+  padding:
+    32px 22px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,0.10);
+
+  border:
+    1px solid
+    rgba(255,255,255,0.20);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0,0,0,0.40),
+
+    inset 0 1px
+    rgba(255,255,255,0.18);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  animation:
+    loginFloat 3s ease-in-out infinite;
+}
+
+@keyframes loginFloat {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+}
+
+.loginLock {
+  font-size: 70px;
+
+  margin-bottom: 10px;
+
+  filter:
+    drop-shadow(
+      0 12px 25px
+      rgba(255,60,170,0.45)
+    );
+}
+
+.loginCard h1 {
+  font-size: 34px;
+
+  margin-bottom: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #ff9bd2,
+      #d9b2ff
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+.loginTitle {
+  font-size: 19px;
+
+  color: #ffd7eb;
+
+  margin-bottom: 8px;
+}
+
+.loginHint {
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color: #d9c5df;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   CODE DOTS
+========================= */
+
+.codeDots {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.codeDots span {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.25);
+
+  transition: 0.2s;
+}
+
+
+/* =========================
+   ENTRY CODE
+========================= */
+
+#entryCode {
+  display: block;
+
+  width: 210px;
+  height: 60px;
+
+  margin:
+    10px auto 18px;
+
+  border:
+    2px solid
+    rgba(255,255,255,0.25);
+
+  border-radius: 20px;
+
+  outline: none;
+
+  background:
+    rgba(255,255,255,0.10);
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 27px;
+
+  letter-spacing: 10px;
+
+  transition: 0.25s;
+}
+
+#entryCode:focus {
+  border-color: #ff82c4;
+
+  box-shadow:
+    0 0 20px
+    rgba(255,100,180,0.25);
+}
+
+#entryCode::placeholder {
+  color:
+    rgba(255,255,255,0.4);
+}
+
+
+/* =========================
+   LOGIN MESSAGE
+========================= */
+
+#loginMessage {
+  min-height: 24px;
+
+  margin-top: 14px;
+
+  font-weight: bold;
+}
+
+
+/* =========================
+   START
+========================= */
+
+#startScreen {
+  text-align: center;
+}
+
+.gift {
+  position: relative;
+
+  width: 180px;
+  height: 180px;
+
+  margin-bottom: 15px;
+
+  animation:
+    giftFloat 2s
+    ease-in-out infinite;
+}
+
+.gift-box {
+  font-size: 130px;
+
+  filter:
+    drop-shadow(
+      0 15px 25px
+      rgba(255,50,160,0.5)
+    );
+}
+
+.gift-lid {
+  position: absolute;
+
+  top: -5px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 50px;
+
+  z-index: 3;
+}
+
+@keyframes giftFloat {
+
+  0%,100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-12px);
+  }
+
+}
+
+#startScreen h1 {
+  font-size: 38px;
+
+  margin: 8px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #ff9bd2,
+      #d9b2ff
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 18px;
+
+  margin: 10px 0;
+
+  color: #ffd9ed;
+}
+
+.hint {
+  color: #d9c5df;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  max-width: 330px;
+
+  margin:
+    10px auto 25px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.mainBtn {
+  border: none;
+  outline: none;
+
+  padding:
+    15px 30px;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4fa3,
+      #a855f7
+    );
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px
+    rgba(255,50,160,0.35),
+
+    inset 0 1px
+    rgba(255,255,255,0.4);
+
+  transition: 0.25s;
+}
+
+.mainBtn:hover {
+  transform:
+    scale(1.05);
+}
+
+.mainBtn:active {
+  transform:
+    scale(0.95);
+}
+
+
+/* =========================
+   TOP
+========================= */
+
+.top {
+  width: 100%;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  margin-bottom: 15px;
+
+  color: #ffd7ec;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  width: 100%;
+
+  padding:
+    25px 18px;
+
+  border-radius: 28px;
+
+  text-align: center;
+
+  background:
+    rgba(255,255,255,0.09);
+
+  border:
+    1px solid
+    rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,0.35),
+
+    inset 0 1px
+    rgba(255,255,255,0.15);
+
+  backdrop-filter:
+    blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+}
+
+.emoji {
+  font-size: 50px;
+
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 24px;
+
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #e8d7eb;
+
+  line-height: 1.5;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   ANSWERS
+========================= */
+
+.answers {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+.answer {
+  width: 100%;
+
+  min-height: 55px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.2);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,0.1);
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.answer:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255,255,255,0.18);
+}
+
+.answer:active {
+  transform:
+    scale(0.96);
+}
+
+#message,
+#finalMessage,
+#codeMessage {
+  min-height: 25px;
+
+  margin-top: 15px;
+
+  font-weight: bold;
+}
+
+
+/* =========================
+   PUZZLE
+========================= */
+
+#puzzle {
+  width: 270px;
+  height: 270px;
+
+  margin:
+    20px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 4px;
+
+  padding: 4px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255,255,255,0.15);
+
+  overflow: hidden;
+}
+
+.puzzle-piece {
+  border: none;
+
+  border-radius: 8px;
+
+  background-size:
+    300% 300%;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.puzzle-piece:hover {
+  transform:
+    scale(1.04);
+}
+
+
+/* =========================
+   HEART GAME
+========================= */
+
+#heartGame {
+  position: relative;
+
+  width: 100%;
+
+  height: 360px;
+
+  margin-top: 10px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background:
+    rgba(0,0,0,0.15);
+}
+
+.game-heart {
+  position: absolute;
+
+  border: none;
+
+  background: none;
+
+  font-size: 32px;
+
+  cursor: pointer;
+
+  animation:
+    heartPulse
+    0.8s
+    infinite alternate;
+}
+
+@keyframes heartPulse {
+
+  from {
+    transform:
+      scale(0.85);
+  }
+
+  to {
+    transform:
+      scale(1.15);
+  }
+
+}
+
+
+/* =========================
+   TARGET
+========================= */
+
+#targetArea {
+  position: relative;
+
+  width: 100%;
+
+  height: 360px;
+
+  margin:
+    15px 0;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background:
+    rgba(0,0,0,0.15);
+}
+
+#target {
+  position: absolute;
+
+  border: none;
+
+  background: none;
+
+  font-size: 48px;
+
+  cursor: pointer;
+
+  transition:
+    left 0.25s,
+    top 0.25s;
+
+  padding: 5px;
+}
+
+
+/* =========================
+   SECRET CODE
+========================= */
+
+#codeInput {
+  display: block;
+
+  width: 190px;
+
+  height: 58px;
+
+  margin:
+    20px auto;
+
+  border:
+    2px solid
+    rgba(255,255,255,0.25);
+
+  border-radius: 18px;
+
+  outline: none;
+
+  background:
+    rgba(255,255,255,0.1);
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 25px;
+
+  letter-spacing: 8px;
+}
+
+#codeInput::placeholder {
+  color:
+    rgba(255,255,255,0.4);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photoBox {
+  width: 100%;
+
+  height: 380px;
+
+  padding: 6px;
+
+  margin:
+    15px 0 20px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff62ad,
+      #a855f7
+    );
+
+  box-shadow:
+    0 15px 35px
+    rgba(0,0,0,0.35);
+
+  overflow: hidden;
+}
+
+.photoBox img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4fa3,
+      #8b5cf6
+    );
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.finalGift {
+  text-align: center;
+}
+
+.bigGift {
+  font-size: 150px;
+
+  animation:
+    finalGift
+    1.5s
+    ease-in-out
+    infinite;
+
+  filter:
+    drop-shadow(
+      0 15px 30px
+      rgba(255,50,160,0.5)
+    );
+}
+
+@keyframes finalGift {
+
+  0%,100% {
+    transform:
+      scale(1)
+      rotate(-3deg);
+  }
+
+  50% {
+    transform:
+      scale(1.08)
+      rotate(3deg);
+  }
+
+}
+
+.finalGift h1 {
+  font-size: 34px;
+
+  margin: 15px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff8bc7,
+      #e4b2ff
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+.finalText {
+  color: #ecd8ef;
+
+  margin: 8px 0;
+
+  font-size: 16px;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.galleryHeader {
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+.galleryHeader h1 {
+  font-size: 34px;
+}
+
+.galleryHeader p {
+  margin-top: 8px;
+
+  color: #e9d4ed;
+}
+
+.gallery {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+
+  height: 210px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  border:
+    2px solid
+    rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 8px 25px
+    rgba(0,0,0,0.3);
+
+  transition: 0.3s;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4fa3,
+      #8b5cf6
+    );
+}
+
+.gallery img:hover {
+  transform:
+    scale(1.03);
+}
+
+
+/* =========================
+   LOVE MESSAGE
+========================= */
+
+.loveMessage {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding:
+    25px 18px;
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  background:
+    rgba(255,255,255,0.09);
+
+  border:
+    1px solid
+    rgba(255,255,255,0.16);
+}
+
+.loveMessage h2 {
+  margin-bottom: 15px;
+}
+
+.loveMessage p {
+  color: #e7d5eb;
+
+  line-height: 1.6;
+
+  margin: 8px 0;
+}
+
+.infinity {
+  margin-top: 15px;
+
+  font-size: 60px;
+
+  color: #ff8ac7;
+
+  animation:
+    infinityGlow
+    1.5s
+    infinite alternate;
+}
+
+@keyframes infinityGlow {
+
+  from {
+    transform:
+      scale(0.95);
+
+    opacity: 0.7;
+  }
+
+  to {
+    transform:
+      scale(1.08);
+
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+  .game {
+    padding:
+      15px 10px;
+  }
+
+  #startScreen h1 {
+    font-size: 31px;
+  }
+
+  .loginCard h1 {
+    font-size: 29px;
+  }
+
+  .gift {
+    transform:
+      scale(0.85);
+
+    margin-bottom: 0;
+  }
+
+  .card {
+    padding:
+      20px 14px;
+  }
+
+  .card h2 {
+    font-size: 21px;
+  }
+
+  #puzzle {
+    width: 240px;
+    height: 240px;
+  }
+
+  .gallery img {
+    height: 180px;
+  }
+
+  .photoBox {
+    height: 330px;
+  }
+
+}
+
+
+/* =========================
+   ERROR IMAGE
+========================= */
+
+img.image-error {
+  object-fit: contain !important;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4fa3,
+      #8b5cf6
+    );
+}
